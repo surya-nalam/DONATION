@@ -1,0 +1,212 @@
+<%layout("./layouts/boilerplate")%>
+<!-- <link rel="stylesheet" href="/stylesheets/card.css"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/stylesheets/percentage.css">
+<link rel="stylesheet" href="/stylesheets/payment.css">
+<link rel="stylesheet" href="/stylesheets/paycard.css">
+<link rel="stylesheet" href="/stylesheets/texteffect.css">
+<!-- <link rel="stylesheet" href="/stylesheets/profile.css"> -->
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+
+
+<div class="container">
+    <h1>
+       <a href="#menu" class="index">Click me</a>
+    </h1>
+       
+   <div class="popover" id="menu">
+    <div class = 'content'>
+     <a href="#" class="close"></a>
+      <div class = 'nav'>
+       <ul class = 'nav_list'>
+         
+         <div class = 'nav_list_item'>
+         <li><a href="/">Home</a></li>
+         </div>
+        <div class = 'nav_list_item'>
+           <li><a href="/about">About</a></li>
+         </div>
+       <div class = 'nav_list_item'>
+         <li><a href="/soldiers">Soldiers</a></li>
+         </div>
+       <div class = 'nav_list_item'>
+         <li><a href="/account">Account</a></li>
+         </div>
+        <div class = 'nav_list_item'>
+           <li><a href="/contact">Contact</a></li>
+         </div>
+         
+       </ul>
+     </div>
+    </div>
+    </div>
+    </div>
+
+<%const amountpercent=soldier.amount/50000%>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card"style="width:10em,height:20em">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <%soldier.images.forEach((image,i)=>{%>
+              <div class="carousel-item <%=i===0?"active":""%>">
+                <img src="<%=image.url%>" class="d-block w-100" alt="..."style="height:20em;width:25em">
+              </div>
+            <%})%>
+            
+          </div>
+            <%if(soldier.images.length>1){%>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <%}%>
+            
+        </div>
+      
+      </div>
+    </div>
+    <div class="col">
+      <div id="map"style="width: 400px;height: 300px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col" style="border:solid black 2px" >
+      <h1><%=soldier.name%></h1>
+      <p><%=soldier.position%></p>
+      <p><%=soldier.age%></p>
+    </div>
+    <div class="col" style="border:solid black 2px">
+      <p><%=soldier.amount%></p>
+      <div class="progress-element">
+        <div class="progress-container">
+          <progress max="100" value="<%=amountpercent%>"><%=amountpercent%></progress>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="border:solid black 2px">
+        <p><b>cause of death:</b><%=soldier.causeofdeath%></p>
+        <p><%=soldier.lifespan%></p>
+        <p><b>date of birth:</b><%=soldier.dob%></p>
+        <p><b>Place of birth:</b><%=soldier.place%></p>
+    </div>
+  </div>
+</div>
+
+<br><br>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col" style="border:solid black 2px">
+      <p><b>acheivements:</b><%=soldier.acheivements%></p>
+    </div>
+    <div class="col" style="border:solid black 2px">
+      <p><b>family details:</b><%=soldier.family%></p>
+    </div>
+  </div>
+</div>
+
+
+
+<br><br>
+
+
+<div class="container" >
+  <div class="row">
+    <div class="col">
+      <svg xmlns="http://www.w3.org/2000/svg">
+          <filter id="motion-blur-filter" filterUnits="userSpaceOnUse"> 
+              <feGaussianBlur stdDeviation="100 0"></feGaussianBlur>
+          </filter>
+      </svg>
+      <span filter-content="S">Donations</span>
+        
+      <%for(let payment of soldier.payments){%>
+         <div class="paycard">
+          <p><%=payment.name%></p>
+          <p><%=payment.amount%></p>
+         </div>
+        <%}%>
+    </div>
+    <div class="col">
+      <form action="/soldiers/<%=soldier._id%>" method="POST">
+        <div class="container p-0">
+          <div class="card px-4">
+              <p class="h8 py-3">Payment Details</p>
+              <div class="row gx-3">
+                  <div class="col-12">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">Person Name</p>
+                          <input class="form-control mb-3" type="text" placeholder="Name" value="Barry Allen" name="card[name]">
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">Card Number</p>
+                          <input class="form-control mb-3" type="text" placeholder="1234 5678 435678" name="card[card_number]">
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">Expiry</p>
+                          <input class="form-control mb-3" type="text" placeholder="MM/YYYY" name="exp_date">
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">CVV/CVC</p>
+                          <input class="form-control mb-3 pt-2 " type="password" placeholder="***" name="card[cvv]">
+                      </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="amount"class="form-label">amount:</label>
+                    <input type="number" class="form-control"name="card[amount]"placeholder="amount"id="amount">
+                  </div>
+                  <button type="submit" class="button">submit</button>
+              </div>
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+   
+<script>
+  const mapToken='<%-process.env.MAPBOX_TOKEN%>';
+  const soldier= <%-JSON.stringify(soldier)%>;
+</script>
+   
+  
+
+   <script src="/javascripts/mapbox.js"></script>

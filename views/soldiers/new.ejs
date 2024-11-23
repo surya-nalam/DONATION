@@ -1,0 +1,75 @@
+<%layout("./layouts/boilerplate")%>
+
+
+<form action="/soldiers"method="POST"novalidate class="validated-form" enctype="multipart/form-data">
+    <div>
+       <div>
+           <label for="name"class="form-label">name:</label>
+           <input type="text"class="form-control" name="soldier[name]"placeholder="name"id="name"required>
+           <div class="valid-feedback">proceed</div>
+        </div>
+        
+        <div>
+           <label for="place"class="form-label">place:</label>
+           <input type="text"class="form-control" name="soldier[place]"placeholder="place"id="place">
+        </div>
+        <div>
+           <label for="age"class="form-label">age:</label>
+           <input type="text"class="form-control" name="soldier[age]"placeholder="age"id="age">
+        </div>
+        <div>
+           <label for="lifespan"class="form-label">life san:</label>
+           <input type="text" class="form-control"name="soldier[lifespan]"placeholder="lifespan"id="lifespan">
+        </div>
+        <div>
+           <label for="acheivements"class="form-label">acheivements:</label>
+           <textarea name="soldier[acheivements]" class="form-control"cols="30"rows="10"></textarea>
+        </div>
+        <div>
+           <label for="dob"class="form-label">date of birth:</label>
+           <input type="text"class="form-control" name="soldier[dob]"placeholder="dob"id="dob">
+        </div>
+        <div>
+           <label for="position"class="form-label">position:</label>
+           <input type="text"class="form-control" name="soldier[position]"placeholder="position"id="position">
+        </div>
+        <div>
+            <label for="family"class="form-label">family-details:</label>
+            <textarea name="soldier[family]" class="form-control"cols="30"rows="10"></textarea>
+         </div>
+         <div>
+            <label for="amount"class="form-label">amount:</label>
+            <input type="text"class="form-control" name="soldier[amount]"placeholder="amount"id="amount">
+         </div>
+         <div>
+            <label for="causeofdeath"class="form-label">cause of death:</label>
+            <textarea name="soldier[causeofdeath]" class="form-control"cols="30"rows="10"></textarea>
+         </div>
+         <input type="file" name="images" id=""multiple>
+           <button class="btn btn-success">ADD</button>
+        </div>
+    </div>
+
+    
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+     (function () {
+       'use strict'
+     
+       // Fetch all the forms we want to apply custom Bootstrap validation styles to
+       const forms = document.querySelectorAll('.validated-form')
+     
+       // Loop over them and prevent submission
+       Array.from(forms)
+         .forEach(function (form) {
+           form.addEventListener('submit', function (event) {
+             if (!form.checkValidity()) {
+               event.preventDefault()
+               event.stopPropagation()
+             }
+     
+             form.classList.add('was-validated')
+           }, false)
+         })
+     })()
+         </script>

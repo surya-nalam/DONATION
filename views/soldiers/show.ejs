@@ -1,0 +1,102 @@
+<%layout("./layouts/boilerplate")%>
+<a href="/account">acoount</a>
+<link rel="stylesheet" href="/stylesheets/soldiercard.css">
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+
+
+<div class="container">
+    <h1>
+       <a href="#menu" class="index">Click me</a>
+    </h1>
+       
+   <div class="popover" id="menu">
+    <div class = 'content'>
+     <a href="#" class="close"></a>
+      <div class = 'nav'>
+       <ul class = 'nav_list'>
+         
+         <div class = 'nav_list_item'>
+         <li><a href="/">Home</a></li>
+         </div>
+        <div class = 'nav_list_item'>
+           <li><a href="/about">About</a></li>
+         </div>
+       <div class = 'nav_list_item'>
+         <li><a href="/soldiers">Soldiers</a></li>
+         </div>
+       <div class = 'nav_list_item'>
+         <li><a href="/account">Account</a></li>
+         </div>
+        <div class = 'nav_list_item'>
+           <li><a href="/contact">Contact</a></li>
+         </div>
+         
+       </ul>
+     </div>
+    </div>
+    </div>
+    </div>
+
+    <h1>here we go with soldier info</h1>
+    <a href="/soldiers/new">new</a>
+    <%for(let soldier of soldiers){%>
+        <div class="wrapper">
+            <div class="main_card">
+              <div class="card_left">
+                <div class="card_datails">
+                  <h1><%=soldier.name%></h1>
+                  <div class="card_cat">
+                    <p class="PG"><%=soldier.position%></p>
+                    <p class="year"><%=soldier.dob%></p>
+                    <p class="genre"><%=soldier.place%> </p>
+                    <p class="time"><%=soldier.lifespan%></p>
+                  </div>
+                  <p class="disc"><%=soldier.acheivements%></p>
+                  <!-- <a href="https://www.imdb.com/title/tt4912910/" target="_blank">Read More</a> -->
+                <div class="social-btn">
+                  <!-- WATCH TRAILER-->
+                  <button>
+                    <a href="/soldiers/<%=soldier.id%>">donate</a>
+                  </button>
+                  <!-- GET-->
+                  <button>
+                   <a href="/soldiers/<%=soldier.id%>/edit">edit</a>
+                  </button>
+                  <!--USERS RATINGS-->
+                  <button>
+                    <i class="fas fa-thumbs-up"></i> 97%
+                  </button>
+                  <!--BOOKMARK-->
+                  <button>
+                    <i class="fas fa-star"></i>
+                  </button>
+                </div>  
+                </div>
+              </div>
+              <div class="card_right">
+                <div class="img_container">
+                  <%soldier.images.forEach((image,i)=>{%>
+                    <div class="col <%=i===0?"active":""%>">
+                      <%if(i==0){%>
+                       <img src="<%=image.url%>" class="img-thumbnail" alt="..." style="height:10em;width:10em" >
+                     <%}%>
+                     </div>
+                   <%})%>
+                  </div>
+                  <div class="play_btn">
+                    <a href="https://www.imdb.com/title/tt4912910/" target="_blank">
+                      <i class="fas fa-play-circle"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          
+          
+          <!-- FOLLOW -->
+          <a class="Follow" href="https://codepen.io/ZaynAlaoudi/" target="blank_"></a>
+          
+    
+    <%}%>
+   

@@ -1,0 +1,11 @@
+
+
+
+
+.paycard{
+    background-color: rgb(236, 242, 237);
+    text-align: center;
+    border: solid 1px rgb(82, 78, 78);
+    box-shadow: 30px;
+    border-radius: 40px;
+}

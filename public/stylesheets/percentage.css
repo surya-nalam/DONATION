@@ -1,0 +1,14 @@
+.progress-label {
+    position: relative;
+  }
+  
+  .progress-label::after {
+    content: "75%";
+    position: absolute;
+    top:0;
+    right: 0;
+    
+  }
+
+
+

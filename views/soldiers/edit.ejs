@@ -1,0 +1,62 @@
+<%layout("./layouts/boilerplate")%>
+
+
+<form action="/soldiers/<%=soldier._id%>?_method=PUT"method="POST"novalidate class="validated-form" enctype="multipart/form-data">
+    <div>
+       <div>
+           <label for="name"class="form-label">name:</label>
+           <input type="text"class="form-control" name="soldier[name]"placeholder="name"id="name" value="<%=soldier.name%>"required>
+           <div class="valid-feedback">proceed</div>
+        </div>
+        
+        <div>
+           <label for="place"class="form-label">place:</label>
+           <input type="text"class="form-control" name="soldier[place]"placeholder="place"id="place" value="<%=soldier.place%>">
+        </div>
+        <div>
+           <label for="age"class="form-label">age:</label>
+           <input type="text"class="form-control" name="soldier[age]"placeholder="age"id="age"value="<%=soldier.age%>">
+        </div>
+        <div>
+           <label for="lifespan"class="form-label">life san:</label>
+           <input type="text" class="form-control"name="soldier[lifespan]"placeholder="lifespan"id="lifespan"value="<%=soldier.lifespan%>">
+        </div>
+        <div>
+           <label for="acheivements"class="form-label">acheivements:</label>
+           <input type="text" class="form-control"name="soldier[acheivements]"placeholder="acheivements"id="achievements"value="<%=soldier.acheivements%>">
+           
+        </div>
+        <div>
+           <label for="dob"class="form-label">date of birth:</label>
+           <input type="text"class="form-control" name="soldier[dob]"placeholder="dob"id="dob"value="<%=soldier.dob%>">
+        </div>
+        <div>
+           <label for="position"class="form-label">position:</label>
+           <input type="text"class="form-control" name="soldier[position]"placeholder="position"id="position" value="<%=soldier.position%>">
+        </div>
+        <div>
+            <label for="family"class="form-label">family-details:</label>
+            <input type="text" class="form-control"name="soldier[family]"placeholder="family"id="family"value="<%=soldier.family%>">
+         </div>
+         <div>
+            <label for="causeofdeath"class="form-label">cause of death:</label>
+            <input type="text" class="form-control"name="soldier[causeofdeath]"placeholder="causeofdeath"id="causeofdeath"value="<%=soldier.causeofdeath%>">
+         </div>
+        
+         
+         <div>
+            <label for="images"class="form-label">add image(s):</label>
+            <input type="file" name="images"multiple id="images">
+         </div>
+         <div class="mb-3">
+            <%soldier.images.forEach(function(image,i){%>
+              <img src="<%=image.url%>" class="img-thumbnail" style="width:10em;height:10em">
+              <div class="form-check-inline">
+                <input type="checkbox" id="image-<%=i%>"name="deleteimages[]" value="<%=image.filename%>">
+              </div>
+              <label for="">delete</label><br>
+            <%})%>
+           </div>
+           <button class="btn btn-success">submit</button>
+        </div>
+    </div>

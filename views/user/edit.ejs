@@ -1,0 +1,34 @@
+<%layout("./layouts/boilerplate")%>
+<h1>edit credential</h1>
+    <form action="/account?_method=PUT"method="POST">
+     <div>
+        <div>
+            <label for="username"class="form-label">name:</label>
+            <input type="text"class="form-control" name="username"id="username"required value="<%=user.username%>">
+         </div>
+         
+         <div>
+            <label for="email"class="form-label">email:</label>
+            <input type="text"class="form-control" name="email"id="email"value="<%=user.email%>">
+         </div>
+         <div>
+            <label for="phoneno"class="form-label">phone number:</label>
+            <input type="text"class="form-control" name="phoneno"id="phoneno"value="<%=user.phoneno%>">
+         </div>
+
+         <div>
+            <label for="address"class="form-label">address:</label>
+            <input type="text"class="form-control" name="address"id="address"value="<%=user.address%>">
+         </div>
+        
+         <div>
+            <label for="image"class="form-label">image:</label>
+            <input type="text"class="form-control" name="image"id="image" value="<%=user.image%>">
+         </div>  
+            <button>submit</button>
+         </div>
+     </div>
+    </form>
+    <br>
+    <a class="btn btn-primary"href="/account">back</a>
+    

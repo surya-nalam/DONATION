@@ -1,0 +1,17 @@
+<%layout("./layouts/boilerplate")%>
+
+<div class="container-mt-5">
+    <div class="login-form offset-3">
+        <h1>sign up</h1>
+        <form action="/signup" method="POST"> 
+          <input type="text"name="username" placeholder="username" />
+          <input type="password" name="password"placeholder="Must be at least 8 characters" />
+          <button type="submit">signup</button>
+          <div class="forgot-signup">
+            <a href="/">home</a>
+            <a href="/signin" class="login">login</a>
+          </div>
+        </form>
+    </div>
+        
+</div>

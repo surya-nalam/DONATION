@@ -1,0 +1,81 @@
+
+<link rel="stylesheet" href="/stylesheets/texteffect.css">
+<link rel="stylesheet" href="/stylesheets/account.css">
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+
+<svg xmlns="http://www.w3.org/2000/svg">
+    <filter id="motion-blur-filter" filterUnits="userSpaceOnUse"> 
+        <feGaussianBlur stdDeviation="100 0"></feGaussianBlur>
+    </filter>
+</svg>
+<span filter-content="S" class="profile">Profile</span>
+
+
+
+
+
+<div class="container">
+    <h1>
+       <a href="#menu" class="index">Click me</a>
+    </h1>
+       
+   <div class="popover" id="menu">
+    <div class = 'content'>
+     <a href="#" class="close"></a>
+      <div class = 'nav'>
+       <ul class = 'nav_list'>
+         
+         <div class = 'nav_list_item'>
+         <li><a href="/">Home</a></li>
+         </div>
+        <div class = 'nav_list_item'>
+           <li><a href="/about">About</a></li>
+         </div>
+       <div class = 'nav_list_item'>
+         <li><a href="/soldiers">Soldiers</a></li>
+         </div>
+       <div class = 'nav_list_item'>
+         <li><a href="/account">Account</a></li>
+         </div>
+        <div class = 'nav_list_item'>
+           <li><a href="/contact">Contact</a></li>
+         </div>
+         
+       </ul>
+     </div>
+    </div>
+    </div>
+    </div>
+
+<body>
+    <div class="card-container">
+        <a href="#" class="hero-image-container">
+          <img class="hero-image" src="<%=user.image%>" alt="Spinning glass cube"/>
+        </a>
+        <main class="main-content">
+          <h1><%=user.username%></h1>
+          <p><%=user.address%></p>
+          <div class="flex-row">
+            <div class="coin-base">
+              <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image"/>
+              <h2><%=user.phoneno%></h2>
+            </div>
+            <div class="time-left">
+              <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image"/>
+              <p>3 days left</p>
+            </div>
+          </div>
+        </main>
+        <div class="card-attribute">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc5M-epshaU9cO2qiLQhrhwyk_nFDpV6wRdA&usqp=CAU" alt="avatar" class="small-avatar"/>
+          <p>Creation of <span><a href="/account/payments">check payments</a></span></p>
+        </div>
+      </div>
+  </div>
+    <div class="attribution">
+      Mail <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"><%=user.email%></a>. 
+      with <a href="/account/edit">edit</a>.
+    </div>
+  </body>
+
+
